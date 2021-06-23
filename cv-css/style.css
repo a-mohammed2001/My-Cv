@@ -3,27 +3,12 @@
 }
 
 body {
-  background-color: green;
+  background-color: #f5f1f0;
   perspective: 2000px;
-}
-
-.map {
-  top: 0;
-  right: 0;
-  width: 400px;
-  float: right;
-  height: 400px;
-  position: absolute;
-}
-.map img {
-  width: 100%;
-  height: 100%;
-}
-
-.cv {
   display: flex;
 }
-.cv .intro {
+
+.intro {
   overflow: hidden;
   width: 20%;
   float: left;
@@ -31,27 +16,29 @@ body {
   border-right: 1px solid #63a2c2;
   z-index: 999;
 }
-.cv .intro .personal-img {
+.intro .personal-img {
   width: 150px;
+  height: 150px;
   margin: auto;
   overflow: hidden;
   margin-top: 50px;
   border-radius: 50%;
   border: solid #63a2c2 3px;
 }
-.cv .intro .personal-img img {
+.intro .personal-img img {
   border-radius: 50%;
   width: 100%;
   height: 100%;
 }
-.cv .intro .title {
+.intro .title {
   margin: 20px auto;
   height: 40px;
   width: 220px;
   position: relative;
   border: 1px solid #63a2c2;
 }
-.cv .intro .title .front, .cv .intro .title .back {
+.intro .title .front,
+.intro .title .back {
   position: absolute;
   text-align: center;
   left: 50%;
@@ -62,73 +49,88 @@ body {
   transform-style: preserve-3d;
   transition: all 1s ease-in-out;
 }
-.cv .intro .title .front h2, .cv .intro .title .back h2 {
+.intro .title .front h2,
+.intro .title .back h2 {
   font-size: 20px;
 }
-.cv .intro .title .front {
+.intro .title .front {
   color: #f5f1f0;
 }
-.cv .intro .title .back {
+.intro .title .back {
   color: #63a2c2;
   transform: rotatey(180deg);
 }
-.cv .intro .title:hover .front {
+.intro .title:hover .front {
   transform: rotatey(180deg);
 }
-.cv .intro .title:hover .back {
+.intro .title:hover .back {
   transform: rotatey(360deg);
 }
-.cv .intro .media {
+.intro .media {
   margin: 0px;
   padding: 0px;
   list-style: none;
   justify-content: center;
 }
-.cv .intro .media li {
+.intro .media li {
   background-color: #f5f1f0;
   height: 30px;
   margin: 5px;
   width: 29px;
   border-radius: 50%;
 }
-.cv .intro .media li img {
+.intro .media li img {
   height: 100%;
   width: 100%;
   border-radius: 50%;
 }
-.cv .intro .skills-lists {
+.intro .skills-lists {
   color: #f5f1f0;
   list-style: none;
 }
-.cv .intro .skills-lists h2 {
+.intro .skills-lists h2 {
   color: #63a2c2;
 }
-.cv .intro .skills-lists h5 {
-  margin-left: 15px;
-  transition: all .2s ease-in-out;
+.intro .skills-lists .skill {
+  transform: translateX(-15px);
 }
-.cv .intro .skills-lists h5::before {
+.intro .skills-lists .skill input[type="checkbox"] {
+  float: left;
+  width: 0px;
+}
+.intro .skills-lists .skill input[type="checkbox"]::before {
+  top: 6px;
   content: "";
-  display: block;
-  width: 0;
-  left: 42px;
+  left: 2px;
   position: absolute;
-  transform: translateY(5px);
   border-width: 7px 0px 7px 7px;
   border-style: solid;
   border-color: transparent #63a2c2;
 }
-.cv .intro .skills-lists .rate {
+.intro .skills-lists .skill input[type="checkbox"]:checked::before {
+  transform: rotate(90deg);
+}
+.intro .skills-lists .skill input[type="checkbox"] + label ul {
+  display: none;
+}
+.intro .skills-lists .skill input[type="checkbox"]:checked + label ul {
+  display: block;
+}
+.intro .skills-lists .skill h5 {
+  margin-left: 15px;
+  transition: all 0.2s ease-in-out;
+}
+.intro .skills-lists .rate {
   list-style: none;
   padding: 0;
 }
-.cv .intro .skills-lists .rate .empty {
+.intro .skills-lists .rate .empty {
   height: 15px;
   width: 15px;
   display: inline-block;
   border: 1px solid #63a2c2;
 }
-.cv .intro .skills-lists .rate .fill {
+.intro .skills-lists .rate .fill {
   height: 15px;
   width: 15px;
   display: inline-block;
@@ -136,17 +138,18 @@ body {
   background-color: #63a2c2;
   box-shadow: -1px -1px 2px 0px #1b262c inset;
 }
-.cv .portfolio {
+
+.portfolio {
   width: 80%;
   float: right;
   padding: 19px 63px;
   background-color: #f5f1f0;
 }
-.cv .portfolio h1 {
+.portfolio h1 {
   font-weight: bold;
   color: #1b262c;
 }
-.cv .portfolio .project {
+.portfolio .project {
   height: 300px;
   width: 340px;
   margin: 10px;
@@ -157,30 +160,37 @@ body {
   background-color: #63a2c2;
   box-shadow: 6px 7px 16px -9px black;
 }
-.cv .portfolio .project .project-header {
-  overflow: hidden;
-  height: 80%;
-  width: 100%;
-}
-.cv .portfolio .project .project-header img {
-  height: 100%;
-  width: 100%;
-  transition: all 1s ease-in-out;
-}
-.cv .portfolio .project .project-header:hover img {
-  opacity: 0.6;
-  transform: scale(1.1, 1.1);
-}
-.cv .portfolio .project a {
+.portfolio .project a {
   color: #f5f1f0;
   text-decoration: none;
   font-size: 33px;
 }
-.cv .portfolio .project a .project-name {
+.portfolio .project a:hover img {
+  opacity: 0.6;
+  transform: scale(1.1, 1.1);
+}
+.portfolio .project a:hover .project-name {
+  transform: scaleY(1.3);
+}
+.portfolio .project a .project-header {
+  overflow: hidden;
+  height: 80%;
+  width: 100%;
+}
+.portfolio .project a .project-header img {
+  height: 100%;
+  width: 100%;
+  transition: all 1s ease-in-out;
+}
+.portfolio .project a .project-name {
+  transition: 0.5s ease-in-out;
   text-align: center;
   background-color: #1b262c;
   height: 20%;
   border-top: 1px solid #63a2c2;
+}
+.portfolio .project a .project-name h3 {
+  transition: none;
 }
 
 /*# sourceMappingURL=style.css.map */
