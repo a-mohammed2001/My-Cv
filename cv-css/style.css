@@ -1,196 +1,766 @@
 * {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
 body {
-  background-color: #f5f1f0;
-  perspective: 2000px;
   display: flex;
-}
+  background-color: green;
+  perspective: 2000px; }
 
 .intro {
   overflow: hidden;
-  width: 20%;
+  width: 22%;
   float: left;
-  background-color: #1b262c;
-  border-right: 1px solid #63a2c2;
-  z-index: 999;
-}
-.intro .personal-img {
-  width: 150px;
-  height: 150px;
-  margin: auto;
-  overflow: hidden;
-  margin-top: 50px;
-  border-radius: 50%;
-  border: solid #63a2c2 3px;
-}
-.intro .personal-img img {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-.intro .title {
-  margin: 20px auto;
-  height: 40px;
-  width: 220px;
-  position: relative;
-  border: 1px solid #63a2c2;
-}
-.intro .title .front,
-.intro .title .back {
-  position: absolute;
-  text-align: center;
-  left: 50%;
-  margin-left: -92px;
-  top: 50%;
-  margin-top: -14.5px;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  transition: all 1s ease-in-out;
-}
-.intro .title .front h2,
-.intro .title .back h2 {
-  font-size: 20px;
-}
-.intro .title .front {
-  color: #f5f1f0;
-}
-.intro .title .back {
-  color: #63a2c2;
-  transform: rotatey(180deg);
-}
-.intro .title:hover .front {
-  transform: rotatey(180deg);
-}
-.intro .title:hover .back {
-  transform: rotatey(360deg);
-}
-.intro .media {
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-  justify-content: center;
-}
-.intro .media li {
-  background-color: #f5f1f0;
-  height: 30px;
-  margin: 5px;
-  width: 29px;
-  border-radius: 50%;
-}
-.intro .media li img {
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-}
-.intro .skills-lists {
-  color: #f5f1f0;
-  list-style: none;
-}
-.intro .skills-lists h2 {
-  color: #63a2c2;
-}
-.intro .skills-lists .skill {
-  transform: translateX(-15px);
-}
-.intro .skills-lists .skill input[type="checkbox"] {
-  float: left;
-  width: 0px;
-}
-.intro .skills-lists .skill input[type="checkbox"]::before {
-  top: 6px;
-  content: "";
-  left: 2px;
-  position: absolute;
-  border-width: 7px 0px 7px 7px;
-  border-style: solid;
-  border-color: transparent #63a2c2;
-}
-.intro .skills-lists .skill input[type="checkbox"]:checked::before {
-  transform: rotate(90deg);
-}
-.intro .skills-lists .skill input[type="checkbox"] + label ul {
-  display: none;
-}
-.intro .skills-lists .skill input[type="checkbox"]:checked + label ul {
-  display: block;
-}
-.intro .skills-lists .skill h5 {
-  margin-left: 15px;
-  transition: all 0.2s ease-in-out;
-}
-.intro .skills-lists .rate {
-  list-style: none;
-  padding: 0;
-}
-.intro .skills-lists .rate .empty {
-  height: 15px;
-  width: 15px;
-  display: inline-block;
-  border: 1px solid #63a2c2;
-}
-.intro .skills-lists .rate .fill {
-  height: 15px;
-  width: 15px;
-  display: inline-block;
-  border: 1px solid #63a2c2;
-  background-color: #63a2c2;
-  box-shadow: -1px -1px 2px 0px #1b262c inset;
-}
+  background-color: #1b262c; }
+  .intro header .title {
+    cursor: pointer;
+    margin: 50px auto 20px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    border: 2px solid #63a2c2; }
+    .intro header .title .front,
+    .intro header .title .back {
+      position: absolute;
+      text-align: center;
+      left: 50%;
+      margin-left: -92px;
+      top: 50%;
+      margin-top: -14.5px;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      transition: all 1s ease-in-out; }
+      .intro header .title .front h2,
+      .intro header .title .back h2 {
+        font-size: 20px; }
+    .intro header .title .front {
+      color: #f5f1f0; }
+    .intro header .title .back {
+      color: #63a2c2;
+      transform: rotatey(180deg); }
+    .intro header .title:hover .front {
+      transform: rotatey(180deg); }
+    .intro header .title:hover .back {
+      transform: rotatey(360deg); }
+  .intro header .control {
+    display: none;
+    cursor: pointer;
+    width: 47px;
+    height: 45px; }
+    .intro header .control svg {
+      fill: #63a2c2; }
+  .intro .details .media {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    justify-content: center; }
+    .intro .details .media li {
+      background-color: #f5f1f0;
+      height: 30px;
+      margin: 5px;
+      width: 29px;
+      border-radius: 50%; }
+      .intro .details .media li img {
+        height: 100%;
+        width: 100%;
+        border-radius: 50%; }
+  .intro .details .skills-lists {
+    color: #f5f1f0;
+    list-style: none; }
+    .intro .details .skills-lists h2 {
+      color: #63a2c2;
+      margin-left: -15px; }
+    .intro .details .skills-lists .skill {
+      transform: translateX(-15px); }
+      .intro .details .skills-lists .skill label {
+        cursor: pointer;
+        width: 100%; }
+      .intro .details .skills-lists .skill input[type="checkbox"] {
+        float: left;
+        width: 0px; }
+      .intro .details .skills-lists .skill input[type="checkbox"]::before {
+        top: 6px;
+        content: "";
+        left: 2px;
+        position: absolute;
+        border-width: 7px 0px 7px 7px;
+        border-style: solid;
+        border-color: transparent #63a2c2; }
+      .intro .details .skills-lists .skill input[type="checkbox"]:checked::before {
+        transform: rotate(90deg); }
+      .intro .details .skills-lists .skill input[type="checkbox"] + label ul {
+        display: none; }
+      .intro .details .skills-lists .skill input[type="checkbox"]:checked + label ul {
+        display: block;
+        list-style: none;
+        padding-left: 25px; }
+      .intro .details .skills-lists .skill h5 {
+        margin-left: 15px;
+        transition: all 0.2s ease-in-out; }
+    .intro .details .skills-lists .rate {
+      list-style: none;
+      padding: 0; }
+      .intro .details .skills-lists .rate .empty {
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+        border: 1px solid #63a2c2; }
+      .intro .details .skills-lists .rate .fill {
+        height: 15px;
+        width: 15px;
+        display: inline-block;
+        border: 1px solid #63a2c2;
+        background-color: #63a2c2;
+        box-shadow: -1px -1px 2px 0px #1b262c inset; }
+  .intro .active-details {
+    display: block; }
 
 .portfolio {
-  width: 80%;
+  width: 78%;
   float: right;
   padding: 19px 63px;
-  background-color: #f5f1f0;
-}
-.portfolio h1 {
-  font-weight: bold;
-  color: #1b262c;
-}
-.portfolio .project {
-  height: 300px;
-  width: 340px;
-  margin: 10px;
-  border: 1px solid #63a2c2;
-  border-radius: 10px;
-  overflow: hidden;
-  display: inline-block;
-  background-color: #63a2c2;
-  box-shadow: 6px 7px 16px -9px black;
-}
-.portfolio .project a {
-  color: #f5f1f0;
-  text-decoration: none;
-  font-size: 33px;
-}
-.portfolio .project a:hover img {
-  opacity: 0.6;
-  transform: scale(1.1, 1.1);
-}
-.portfolio .project a:hover .project-name {
-  transform: scaleY(1.3);
-}
-.portfolio .project a .project-header {
-  overflow: hidden;
-  height: 80%;
-  width: 100%;
-}
-.portfolio .project a .project-header img {
-  height: 100%;
-  width: 100%;
-  transition: all 1s ease-in-out;
-}
-.portfolio .project a .project-name {
-  transition: 0.5s ease-in-out;
-  text-align: center;
-  background-color: #1b262c;
-  height: 20%;
-  border-top: 1px solid #63a2c2;
-}
-.portfolio .project a .project-name h3 {
-  transition: none;
-}
+  background-color: #f5f1f0; }
+  .portfolio h1 {
+    margin-left: 10px;
+    width: 170px;
+    font-weight: bold;
+    color: #1b262c;
+    border-bottom: 3px solid #1b262c; }
+  .portfolio .projects .project {
+    height: 300px;
+    width: 30%;
+    margin: 1%;
+    border: 1px solid #63a2c2;
+    border-radius: 10px;
+    overflow: hidden;
+    display: inline-block;
+    background-color: #63a2c2;
+    box-shadow: 6px 7px 16px -9px black; }
+    .portfolio .projects .project a {
+      color: #f5f1f0;
+      text-decoration: none;
+      font-size: 33px; }
+      .portfolio .projects .project a:hover img {
+        opacity: 0.6;
+        transform: scale(1.1, 1.1); }
+      .portfolio .projects .project a .project-header {
+        overflow: hidden;
+        height: 80%;
+        width: 100%; }
+        .portfolio .projects .project a .project-header img {
+          height: 100%;
+          width: 100%;
+          transition: all 1s ease-in-out; }
+      .portfolio .projects .project a .project-name {
+        transition: 0.5s ease-in-out;
+        text-align: center;
+        background-color: #1b262c;
+        height: 20%;
+        border-top: 1px solid #63a2c2; }
+        .portfolio .projects .project a .project-name h3 {
+          transition: none; }
+
+@media (max-width: 1200px) and (min-width: 993px) {
+  body {
+    display: block; }
+
+  .intro {
+    overflow: hidden;
+    width: 25%; }
+    .intro .title {
+      cursor: pointer;
+      margin: 50px auto 20px;
+      height: 50px;
+      width: 100%;
+      position: relative;
+      border: 2px solid #63a2c2; }
+      .intro .title .front,
+      .intro .title .back {
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        margin-left: -92px;
+        top: 50%;
+        margin-top: -14.5px;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+        transition: all 1s ease-in-out; }
+        .intro .title .front h2,
+        .intro .title .back h2 {
+          font-size: 20px; }
+      .intro .title .front {
+        color: #f5f1f0; }
+      .intro .title .back {
+        color: #63a2c2;
+        transform: rotatey(180deg); }
+      .intro .title:hover .front {
+        transform: rotatey(180deg); }
+      .intro .title:hover .back {
+        transform: rotatey(360deg); }
+    .intro .details .media {
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      justify-content: center; }
+      .intro .details .media li {
+        background-color: #f5f1f0;
+        height: 30px;
+        margin: 5px;
+        width: 29px;
+        border-radius: 50%; }
+        .intro .details .media li img {
+          height: 100%;
+          width: 100%;
+          border-radius: 50%; }
+    .intro .details .skills-lists {
+      color: #f5f1f0;
+      list-style: none; }
+      .intro .details .skills-lists h2 {
+        color: #63a2c2;
+        margin-left: -15px; }
+      .intro .details .skills-lists .skill {
+        transform: translateX(-15px); }
+        .intro .details .skills-lists .skill label {
+          cursor: pointer;
+          width: 100%; }
+        .intro .details .skills-lists .skill input[type="checkbox"] {
+          float: left;
+          width: 0px; }
+        .intro .details .skills-lists .skill input[type="checkbox"]::before {
+          top: 6px;
+          content: "";
+          left: 2px;
+          position: absolute;
+          border-width: 7px 0px 7px 7px;
+          border-style: solid;
+          border-color: transparent #63a2c2; }
+        .intro .details .skills-lists .skill input[type="checkbox"]:checked::before {
+          transform: rotate(90deg); }
+        .intro .details .skills-lists .skill input[type="checkbox"] + label ul {
+          display: none; }
+        .intro .details .skills-lists .skill input[type="checkbox"]:checked + label ul {
+          display: block; }
+        .intro .details .skills-lists .skill h5 {
+          margin-left: 15px;
+          transition: all 0.2s ease-in-out; }
+      .intro .details .skills-lists .rate {
+        list-style: none;
+        padding: 0; }
+        .intro .details .skills-lists .rate .empty {
+          height: 15px;
+          width: 15px;
+          display: inline-block;
+          border: 1px solid #63a2c2; }
+        .intro .details .skills-lists .rate .fill {
+          height: 15px;
+          width: 15px;
+          display: inline-block;
+          border: 1px solid #63a2c2;
+          background-color: #63a2c2;
+          box-shadow: -1px -1px 2px 0px #1b262c inset; }
+
+  .portfolio {
+    width: 75%;
+    float: right;
+    padding: 19px 63px;
+    background-color: #f5f1f0; }
+    .portfolio h1 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: #1b262c;
+      border-bottom: 3px solid #1b262c; }
+    .portfolio .projects .project {
+      height: 300px;
+      width: 47%;
+      margin: 1%;
+      border: 1px solid #63a2c2;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-block;
+      background-color: #63a2c2;
+      box-shadow: 6px 7px 16px -9px black; }
+      .portfolio .projects .project a {
+        color: #f5f1f0;
+        text-decoration: none;
+        font-size: 33px; }
+        .portfolio .projects .project a:hover img {
+          opacity: 0.6;
+          transform: scale(1.1, 1.1); }
+        .portfolio .projects .project a .project-header {
+          overflow: hidden;
+          height: 80%;
+          width: 100%; }
+          .portfolio .projects .project a .project-header img {
+            height: 100%;
+            width: 100%;
+            transition: all 1s ease-in-out; }
+        .portfolio .projects .project a .project-name {
+          transition: 0.5s ease-in-out;
+          text-align: center;
+          background-color: #1b262c;
+          height: 20%;
+          border-top: 1px solid #63a2c2; }
+          .portfolio .projects .project a .project-name h3 {
+            transition: none; } }
+@media (max-width: 992px) and (min-width: 769px) {
+  body {
+    display: block; }
+
+  .intro {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    padding: 0 65px; }
+    .intro header {
+      display: flex; }
+      .intro header .title {
+        margin: 20px 0;
+        width: 70%; }
+        .intro header .title .front,
+        .intro header .title .back {
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          margin-left: -92px;
+          top: 50%;
+          margin-top: -14.5px;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+          transition: all 1s ease-in-out; }
+          .intro header .title .front h2,
+          .intro header .title .back h2 {
+            font-size: 20px; }
+        .intro header .title .front {
+          color: #f5f1f0; }
+        .intro header .title .back {
+          color: #63a2c2;
+          transform: rotatey(180deg); }
+        .intro header .title:hover .front {
+          transform: rotatey(180deg); }
+        .intro header .title:hover .back {
+          transform: rotatey(360deg); }
+      .intro header .control {
+        position: absolute;
+        display: block;
+        right: 80px;
+        top: 25px; }
+    .intro .details {
+      display: none;
+      width: 150px; }
+      .intro .details .media {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        justify-content: center; }
+        .intro .details .media li {
+          background-color: #f5f1f0;
+          height: 30px;
+          margin: 5px;
+          width: 29px;
+          border-radius: 50%; }
+          .intro .details .media li img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%; }
+      .intro .details .skills-lists {
+        color: #f5f1f0;
+        list-style: none; }
+        .intro .details .skills-lists h2 {
+          color: #63a2c2;
+          margin-left: -15px; }
+        .intro .details .skills-lists .skill {
+          transform: translateX(-15px); }
+          .intro .details .skills-lists .skill label {
+            cursor: pointer;
+            width: 100%; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] {
+            float: left;
+            width: 0px; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]::before {
+            top: 6px;
+            content: "";
+            left: 2px;
+            position: absolute;
+            border-width: 7px 0px 7px 7px;
+            border-style: solid;
+            border-color: transparent #63a2c2; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked::before {
+            transform: rotate(90deg); }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] + label ul {
+            display: none;
+            transition: all 2s ease-in-out; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked + label ul {
+            display: block; }
+          .intro .details .skills-lists .skill h5 {
+            margin-left: 15px;
+            transition: all 0.2s ease-in-out; }
+        .intro .details .skills-lists .rate {
+          list-style: none;
+          padding: 0; }
+          .intro .details .skills-lists .rate .empty {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2; }
+          .intro .details .skills-lists .rate .fill {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2;
+            background-color: #63a2c2;
+            box-shadow: -1px -1px 2px 0px #1b262c inset; }
+    .intro .active-details {
+      display: block; }
+
+  .portfolio {
+    width: 100%;
+    float: right;
+    padding: 19px 63px;
+    background-color: #f5f1f0; }
+    .portfolio h1 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: #1b262c;
+      border-bottom: 3px solid #1b262c; }
+    .portfolio .projects .project {
+      height: 300px;
+      width: 47%;
+      margin: 1%;
+      border: 1px solid #63a2c2;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-block;
+      background-color: #63a2c2;
+      box-shadow: 6px 7px 16px -9px black; }
+      .portfolio .projects .project a {
+        color: #f5f1f0;
+        text-decoration: none;
+        font-size: 33px; }
+        .portfolio .projects .project a:hover img {
+          opacity: 0.6;
+          transform: scale(1.1, 1.1); }
+        .portfolio .projects .project a .project-header {
+          overflow: hidden;
+          height: 80%;
+          width: 100%; }
+          .portfolio .projects .project a .project-header img {
+            height: 100%;
+            width: 100%;
+            transition: all 1s ease-in-out; }
+        .portfolio .projects .project a .project-name {
+          transition: 0.5s ease-in-out;
+          text-align: center;
+          background-color: #1b262c;
+          height: 20%;
+          border-top: 1px solid #63a2c2; }
+          .portfolio .projects .project a .project-name h3 {
+            transition: none; } }
+@media (max-width: 768px) and (min-width: 601px) {
+  body {
+    display: block; }
+
+  .intro {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    padding: 0 65px; }
+    .intro header {
+      display: flex; }
+      .intro header .title {
+        margin: 20px 0;
+        width: 70%; }
+        .intro header .title .front,
+        .intro header .title .back {
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          margin-left: -92px;
+          top: 50%;
+          margin-top: -14.5px;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+          transition: all 1s ease-in-out; }
+          .intro header .title .front h2,
+          .intro header .title .back h2 {
+            font-size: 20px; }
+        .intro header .title .front {
+          color: #f5f1f0; }
+        .intro header .title .back {
+          color: #63a2c2;
+          transform: rotatey(180deg); }
+        .intro header .title:hover .front {
+          transform: rotatey(180deg); }
+        .intro header .title:hover .back {
+          transform: rotatey(360deg); }
+      .intro header .control {
+        position: absolute;
+        display: block;
+        right: 60px;
+        top: 25px; }
+    .intro .details {
+      display: none;
+      width: 150px; }
+      .intro .details .media {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        justify-content: center; }
+        .intro .details .media li {
+          background-color: #f5f1f0;
+          height: 30px;
+          margin: 5px;
+          width: 29px;
+          border-radius: 50%; }
+          .intro .details .media li img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%; }
+      .intro .details .skills-lists {
+        color: #f5f1f0;
+        list-style: none; }
+        .intro .details .skills-lists h2 {
+          color: #63a2c2;
+          margin-left: -15px; }
+        .intro .details .skills-lists .skill {
+          transform: translateX(-15px); }
+          .intro .details .skills-lists .skill label {
+            cursor: pointer;
+            width: 100%; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] {
+            float: left;
+            width: 0px; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]::before {
+            top: 6px;
+            content: "";
+            left: 2px;
+            position: absolute;
+            border-width: 7px 0px 7px 7px;
+            border-style: solid;
+            border-color: transparent #63a2c2; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked::before {
+            transform: rotate(90deg); }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] + label ul {
+            display: none;
+            transition: all 2s ease-in-out; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked + label ul {
+            display: block; }
+          .intro .details .skills-lists .skill h5 {
+            margin-left: 15px;
+            transition: all 0.2s ease-in-out; }
+        .intro .details .skills-lists .rate {
+          list-style: none;
+          padding: 0; }
+          .intro .details .skills-lists .rate .empty {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2; }
+          .intro .details .skills-lists .rate .fill {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2;
+            background-color: #63a2c2;
+            box-shadow: -1px -1px 2px 0px #1b262c inset; }
+    .intro .active-details {
+      display: block; }
+
+  .portfolio {
+    width: 100%;
+    float: right;
+    padding: 19px 63px;
+    background-color: #f5f1f0; }
+    .portfolio h1 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: #1b262c;
+      border-bottom: 3px solid #1b262c; }
+    .portfolio .projects .project {
+      height: 340px;
+      width: 80%;
+      margin-left: 7%;
+      border: 1px solid #63a2c2;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-block;
+      box-shadow: 6px 7px 16px -9px black; }
+      .portfolio .projects .project a {
+        color: #f5f1f0;
+        text-decoration: none;
+        font-size: 33px; }
+        .portfolio .projects .project a:hover img {
+          opacity: 0.6;
+          transform: scale(1.1, 1.1); }
+        .portfolio .projects .project a .project-header {
+          overflow: hidden;
+          height: 80%;
+          width: 100%; }
+          .portfolio .projects .project a .project-header img {
+            height: 100%;
+            width: 100%;
+            transition: all 1s ease-in-out; }
+        .portfolio .projects .project a .project-name {
+          transition: 0.5s ease-in-out;
+          text-align: center;
+          background-color: #1b262c;
+          height: 20%;
+          border-top: 1px solid #63a2c2; }
+          .portfolio .projects .project a .project-name h3 {
+            transition: none; } }
+@media (max-width: 600px) {
+  body {
+    display: block; }
+
+  .intro {
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    padding: 0 65px; }
+    .intro header {
+      display: flex; }
+      .intro header .title {
+        margin: 20px 0;
+        width: 70%; }
+        .intro header .title .front,
+        .intro header .title .back {
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          margin-left: -92px;
+          top: 50%;
+          margin-top: -14.5px;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+          transition: all 1s ease-in-out; }
+          .intro header .title .front h2,
+          .intro header .title .back h2 {
+            font-size: 20px; }
+        .intro header .title .front {
+          color: #f5f1f0; }
+        .intro header .title .back {
+          color: #63a2c2;
+          transform: rotatey(180deg); }
+        .intro header .title:hover .front {
+          transform: rotatey(180deg); }
+        .intro header .title:hover .back {
+          transform: rotatey(360deg); }
+      .intro header .control {
+        position: absolute;
+        display: block;
+        right: 60px;
+        top: 25px; }
+    .intro .details {
+      display: none;
+      width: 150px; }
+      .intro .details .media {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        justify-content: center; }
+        .intro .details .media li {
+          background-color: #f5f1f0;
+          height: 30px;
+          margin: 5px;
+          width: 29px;
+          border-radius: 50%; }
+          .intro .details .media li img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%; }
+      .intro .details .skills-lists {
+        color: #f5f1f0;
+        list-style: none; }
+        .intro .details .skills-lists h2 {
+          color: #63a2c2;
+          margin-left: -15px; }
+        .intro .details .skills-lists .skill {
+          transform: translateX(-15px); }
+          .intro .details .skills-lists .skill label {
+            cursor: pointer;
+            width: 100%; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] {
+            float: left;
+            width: 0px; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]::before {
+            top: 6px;
+            content: "";
+            left: 2px;
+            position: absolute;
+            border-width: 7px 0px 7px 7px;
+            border-style: solid;
+            border-color: transparent #63a2c2; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked::before {
+            transform: rotate(90deg); }
+          .intro .details .skills-lists .skill .control2[type="checkbox"] + label ul {
+            display: none;
+            transition: all 2s ease-in-out; }
+          .intro .details .skills-lists .skill .control2[type="checkbox"]:checked + label ul {
+            display: block; }
+          .intro .details .skills-lists .skill h5 {
+            margin-left: 15px;
+            transition: all 0.2s ease-in-out; }
+        .intro .details .skills-lists .rate {
+          list-style: none;
+          padding: 0; }
+          .intro .details .skills-lists .rate .empty {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2; }
+          .intro .details .skills-lists .rate .fill {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid #63a2c2;
+            background-color: #63a2c2;
+            box-shadow: -1px -1px 2px 0px #1b262c inset; }
+    .intro .active-details {
+      display: block; }
+
+  .portfolio {
+    width: 100%;
+    float: right;
+    padding: 19px 63px;
+    background-color: #f5f1f0; }
+    .portfolio h1 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: #1b262c;
+      border-bottom: 3px solid #1b262c; }
+    .portfolio .projects .project {
+      height: 340px;
+      width: 98%;
+      margin: 1%;
+      border: 1px solid #63a2c2;
+      border-radius: 10px;
+      overflow: hidden;
+      display: inline-block;
+      box-shadow: 6px 7px 16px -9px black; }
+      .portfolio .projects .project a {
+        color: #f5f1f0;
+        text-decoration: none;
+        font-size: 33px; }
+        .portfolio .projects .project a:hover img {
+          opacity: 0.6;
+          transform: scale(1.1, 1.1); }
+        .portfolio .projects .project a .project-header {
+          overflow: hidden;
+          height: 80%;
+          width: 100%; }
+          .portfolio .projects .project a .project-header img {
+            height: 100%;
+            width: 100%;
+            transition: all 1s ease-in-out; }
+        .portfolio .projects .project a .project-name {
+          transition: 0.5s ease-in-out;
+          text-align: center;
+          background-color: #1b262c;
+          height: 20%;
+          border-top: 1px solid #63a2c2; }
+          .portfolio .projects .project a .project-name h3 {
+            transition: none; } }
 
 /*# sourceMappingURL=style.css.map */
