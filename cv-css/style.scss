@@ -6,19 +6,18 @@ $LightGrey: #f5f1f0;
   box-sizing: border-box;
 }
 body {
-  display: flex;
-  background-color: green;
-  perspective: 2000px;
+  background-color:$LightGrey;
+  overflow-x: hidden;
 }
 .intro {
-  overflow: hidden;
+  position: fixed;
   width: 22%;
-  float: left;
+  height: 100%;
   background-color: $DarkBlue;
   header {
     .title {
       cursor: pointer;
-      margin: 50px auto 20px;
+      margin: 30px auto 20px;
       height: 50px;
       width: 100%;
       position: relative;
@@ -72,66 +71,97 @@ body {
       padding: 0px;
       list-style: none;
       justify-content: center;
+      
       li {
-        background-color: $LightGrey;
-        height: 30px;
-        margin: 5px;
-        width: 29px;
+        margin: 2px;
+      }
+      .linkedin {
+        background-color: black;
+        padding: 6px 8px;
         border-radius: 50%;
-        img {
-          height: 100%;
-          width: 100%;
+        i {
+          color: $LightGrey;
+          font-size: 25px;
+        }
+      }
+      .github {
+        i {
+          color: black;
+          box-shadow: black inset -1px 1px 0px 2px;
+          background-color: #f5f1f0;
+          font-size: 39px;
+          border-radius: 50%;
+        }
+      }
+      .codepen {
+        background-color: black;
+        padding: 6px;
+        border-radius: 50%;
+        i {
+          font-size: 26px;
+          color: $LightGrey;
+        }
+      }
+      .upwork {
+        width: 39px;
+        svg {
           border-radius: 50%;
         }
       }
     }
-    .skills-lists {
-      color: $LightGrey;
-      list-style: none;
+    .ul_skills_lists {
+      color: $LightGrey; 
       h2 {
         color: $Blue;
         margin-left: -15px;
       }
-      .skill {
-        transform: translateX(-15px);
-        label {
+      .skill {       
+        .skill_header{
           cursor: pointer;
-          width: 100%;
-        }
-        input[type="checkbox"] {
-          float: left;
-          width: 0px;
-        }
-        input[type="checkbox"]::before {
-          top: 6px;
-          content: "";
-          left: 2px;
-          position: absolute;
-          border-width: 7px 0px 7px 7px;
-          border-style: solid;
-          border-color: transparent #63a2c2;
-        }
-        input[type="checkbox"]:checked::before {
-          transform: rotate(90deg);
-        }
-        input[type="checkbox"] + label {
-          ul {
-            display: none;
+          i{
+            color: $Blue;
+          }
+          transform: translateX(-15px);
+          h5 {
+            margin-left: 15px;
+            display: inline-block;
           }
         }
-        input[type="checkbox"]:checked + label {
-          ul {
-            display: block;
-            list-style: none;
-            padding-left: 25px;
-          }
-        }
-        h5 {
-          margin-left: 15px;
-          transition: all 0.2s ease-in-out;
+        ul{
+          transition: .5s ease-in-out;
+          list-style: none;  
+          height: 0;
+          overflow: hidden;
+          li{}
         }
       }
-
+      .skill_active {
+        &:first-of-type{
+          ul{
+            transition: .5s ease-in-out;
+            display: block;
+            height: 30px;
+            li{
+            
+            }
+         }
+        }
+        .skill_header{ 
+          i{    
+            transform: rotate(90deg);
+          }
+          
+          h5 {
+            
+            display: inline-block;
+          }
+        }
+        ul{
+           display: block;
+           height: 80px;
+           width: 250px;
+        }
+      }
       .rate {
         list-style: none;
         padding: 0;
@@ -152,42 +182,45 @@ body {
       }
     }
   }
-  .active-details {
+  .active_details {
     display: block;
+   transition: .5s ease-in-out;
   }
 }
 .portfolio {
   width: 78%;
   float: right;
-  padding: 19px 63px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 32px 63px;
+  justify-content: space-between;
   background-color: $LightGrey;
-  h1 {
+  h2 {
     margin-left: 10px;
     width: 170px;
     font-weight: bold;
     color: $DarkBlue;
     border-bottom: 3px solid $DarkBlue;
   }
-  .projects {
-   
-    .project {
+  .projects{
+    .project{
+      a{
+        color: $LightGrey;
+        text-decoration: none;
+      }
+      cursor: pointer;
       height: 300px;
       width: 30%;
-      margin: 1%;
       border: 1px solid $Blue;
       border-radius: 10px;
       overflow: hidden;
       display: inline-block;
       background-color: $Blue;
       box-shadow: 6px 7px 16px -9px black;
-
-      a {
         &:hover {
           img {
             opacity: 0.6;
-            transform: scale(1.1, 1.1);
-          }
-          .project-header {
+            @extend .scale1-1;
           }
         }
         .project-header {
@@ -211,16 +244,15 @@ body {
           border-top: 1px solid $Blue;
           h3 {
             transition: none;
+            height: 100%;
           }
         }
-      }
+      
     }
   }
 }
+
 @media (max-width: 1200px) and (min-width: 993px) {
-  body{
-    display: block;
-  }
   .intro {
     overflow: hidden;
     width: 25%;
@@ -269,19 +301,16 @@ body {
         list-style: none;
         justify-content: center;
         li {
-          background-color: $LightGrey;
-          height: 30px;
           margin: 5px;
-          width: 29px;
-          border-radius: 50%;
-          img {
+          a {
             height: 100%;
             width: 100%;
             border-radius: 50%;
+            i{}
           }
         }
       }
-      .skills-lists {
+      .ul_skills_lists {
         color: $LightGrey;
         list-style: none;
         h2 {
@@ -290,42 +319,13 @@ body {
         }
         .skill {
           transform: translateX(-15px);
-          label {
-            cursor: pointer;
-            width: 100%;
-          }
-          input[type="checkbox"] {
-            float: left;
-            width: 0px;
-          }
-          input[type="checkbox"]::before {
-            top: 6px;
-            content: "";
-            left: 2px;
-            position: absolute;
-            border-width: 7px 0px 7px 7px;
-            border-style: solid;
-            border-color: transparent #63a2c2;
-          }
-          input[type="checkbox"]:checked::before {
-            transform: rotate(90deg);
-          }
-          input[type="checkbox"] + label {
-            ul {
-              display: none;
-            }
-          }
-          input[type="checkbox"]:checked + label {
-            ul {
-              display: block;
-            }
-          }
+      
           h5 {
             margin-left: 15px;
             transition: all 0.2s ease-in-out;
           }
         }
-
+        
         .rate {
           list-style: none;
           padding: 0;
@@ -353,7 +353,7 @@ body {
     padding: 19px 63px;
     background-color: $LightGrey;
 
-    h1 {
+    h2 {
       margin-left: 10px;
       width: 170px;
       font-weight: bold;
@@ -361,7 +361,8 @@ body {
       border-bottom: 3px solid $DarkBlue;
     }
     .projects {
-      .project {
+      .project,
+      .pen {
         height: 300px;
         width: 47%;
         margin: 1%;
@@ -376,9 +377,7 @@ body {
           &:hover {
             img {
               opacity: 0.6;
-              transform: scale(1.1, 1.1);
-            }
-            .project-header {
+              transform: scale(1.1);
             }
           }
           .project-header {
@@ -410,18 +409,19 @@ body {
   }
 }
 @media (max-width: 992px) and (min-width: 769px) {
-  body{
+  body {
     display: block;
   }
   .intro {
-    overflow: hidden;
     width: 100%;
-    float: left;
     padding: 0 65px;
+    height: 70px;
+    z-index: 999;
+    
     header {
       display: flex;
       .title {
-        margin: 20px 0;
+        margin: 11px 6px;
         width: 70%;
         .front,
         .back {
@@ -458,32 +458,32 @@ body {
         position: absolute;
         display: block;
         right: 80px;
-        top: 25px;
+        top: 13px;
       }
     }
 
     .details {
-      display: none;
+      position: absolute;
+      left: -300px;
       width: 150px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
       .media {
-        margin: 0px;
-        padding: 0px;
-        list-style: none;
-        justify-content: center;
+        transform: translateX(-35px);
         li {
-          background-color: $LightGrey;
-          height: 30px;
           margin: 5px;
-          width: 29px;
-          border-radius: 50%;
-          img {
+          a {
             height: 100%;
             width: 100%;
             border-radius: 50%;
+            svg{
+              width: 40px;
+            }
           }
         }
       }
-      .skills-lists {
+      .ul_skills_lists {
         color: $LightGrey;
         list-style: none;
         h2 {
@@ -492,37 +492,7 @@ body {
         }
         .skill {
           transform: translateX(-15px);
-          label {
-            cursor: pointer;
-            width: 100%;
-          }
-          .control2[type="checkbox"] {
-            float: left;
-            width: 0px;
-          }
-          .control2[type="checkbox"]::before {
-            top: 6px;
-            content: "";
-            left: 2px;
-            position: absolute;
-            border-width: 7px 0px 7px 7px;
-            border-style: solid;
-            border-color: transparent #63a2c2;
-          }
-          .control2[type="checkbox"]:checked::before {
-            transform: rotate(90deg);
-          }
-          .control2[type="checkbox"] + label {
-            ul {
-              display: none;
-              transition: all 2s ease-in-out;
-            }
-          }
-          .control2[type="checkbox"]:checked + label {
-            ul {
-              display: block;
-            }
-          }
+          width: 116px;
           h5 {
             margin-left: 15px;
             transition: all 0.2s ease-in-out;
@@ -549,16 +519,25 @@ body {
         }
       }
     }
-    .active-details {
-      display: block;
+    .active_details {
+      display: inline-block;
+      background-color: $DarkBlue;
+      width: 300px;
+      position: absolute;
+      left: 0px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
+
     }
   }
+
   .portfolio {
     width: 100%;
     float: right;
     padding: 19px 63px;
     background-color: $LightGrey;
-    h1 {
+    h2 {
       margin-left: 10px;
       width: 170px;
       font-weight: bold;
@@ -566,7 +545,9 @@ body {
       border-bottom: 3px solid $DarkBlue;
     }
     .projects {
-      .project {
+      
+      .project{
+        transition: 0.5s ease-in-out;
         height: 300px;
         width: 47%;
         margin: 1%;
@@ -580,9 +561,7 @@ body {
           &:hover {
             img {
               opacity: 0.6;
-              transform: scale(1.1, 1.1);
-            }
-            .project-header {
+              transform: scale(1.1);
             }
           }
           .project-header {
@@ -610,22 +589,29 @@ body {
           }
         }
       }
+      .click_control{
+        height: 325px;
+        width: 50%;
+        margin: 7px 0 0 43%;
+        
+      }
     }
   }
 }
-@media (max-width: 768px) and (min-width: 601px) {
-  body{
+@media (max-width: 768px) and (min-width: 701px) {
+  body {
     display: block;
   }
   .intro {
-    overflow: hidden;
     width: 100%;
-    float: left;
     padding: 0 65px;
+    height: 70px;
+    z-index: 999;
+    
     header {
       display: flex;
       .title {
-        margin: 20px 0;
+        margin: 11px 6px;
         width: 70%;
         .front,
         .back {
@@ -661,33 +647,34 @@ body {
       .control {
         position: absolute;
         display: block;
-        right: 60px;
-        top: 25px;
+        right: 80px;
+        top: 13px;
       }
     }
 
     .details {
-      display: none;
+      position: absolute;
+      left: -300px;
       width: 150px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
       .media {
-        margin: 0px;
-        padding: 0px;
-        list-style: none;
-        justify-content: center;
+        transform: translateX(-35px);
         li {
-          background-color: $LightGrey;
-          height: 30px;
           margin: 5px;
-          width: 29px;
-          border-radius: 50%;
-          img {
+          a {
             height: 100%;
             width: 100%;
             border-radius: 50%;
+            i{}
+            svg{
+              width: 40px;
+            }
           }
         }
       }
-      .skills-lists {
+      .ul_skills_lists {
         color: $LightGrey;
         list-style: none;
         h2 {
@@ -696,37 +683,7 @@ body {
         }
         .skill {
           transform: translateX(-15px);
-          label {
-            cursor: pointer;
-            width: 100%;
-          }
-          .control2[type="checkbox"] {
-            float: left;
-            width: 0px;
-          }
-          .control2[type="checkbox"]::before {
-            top: 6px;
-            content: "";
-            left: 2px;
-            position: absolute;
-            border-width: 7px 0px 7px 7px;
-            border-style: solid;
-            border-color: transparent #63a2c2;
-          }
-          .control2[type="checkbox"]:checked::before {
-            transform: rotate(90deg);
-          }
-          .control2[type="checkbox"] + label {
-            ul {
-              display: none;
-              transition: all 2s ease-in-out;
-            }
-          }
-          .control2[type="checkbox"]:checked + label {
-            ul {
-              display: block;
-            }
-          }
+          width: 116px;
           h5 {
             margin-left: 15px;
             transition: all 0.2s ease-in-out;
@@ -753,16 +710,25 @@ body {
         }
       }
     }
-    .active-details {
-      display: block;
+    .active_details {
+      display: inline-block;
+      background-color: $DarkBlue;
+      width: 300px;
+      position: absolute;
+      left: 0px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
+
     }
   }
+
   .portfolio {
     width: 100%;
     float: right;
     padding: 19px 63px;
     background-color: $LightGrey;
-    h1 {
+    h2 {
       margin-left: 10px;
       width: 170px;
       font-weight: bold;
@@ -770,227 +736,23 @@ body {
       border-bottom: 3px solid $DarkBlue;
     }
     .projects {
-      .project {
-        height: 340px;
-        width: 80%;
-        margin-left: 7%;
-        border: 1px solid $Blue;
-        border-radius: 10px;
-        overflow: hidden;
-        display: inline-block;
-       // background-color: $Blue;
-        box-shadow: 6px 7px 16px -9px black;
-        a {
-          &:hover {
-            img {
-              opacity: 0.6;
-              transform: scale(1.1, 1.1);
-            }
-            .project-header {
-            }
-          }
-          .project-header {
-            overflow: hidden;
-            height: 80%;
-            width: 100%;
-            img {
-              height: 100%;
-              width: 100%;
-              transition: all 1s ease-in-out;
-            }
-          }
-          color: $LightGrey;
-          text-decoration: none;
-          font-size: 33px;
-          .project-name {
-            transition: 0.5s ease-in-out;
-            text-align: center;
-            background-color: $DarkBlue;
-            height: 20%;
-            border-top: 1px solid $Blue;
-            h3 {
-              transition: none;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-@media (max-width: 600px) {
-  body{
-    display: block;
-  }
-  .intro {
-    overflow: hidden;
-    width: 100%;
-    float: left;
-    padding: 0 65px;
-    header {
-      display: flex;
-      .title {
-        margin: 20px 0;
-        width: 70%;
-        .front,
-        .back {
-          position: absolute;
-          text-align: center;
-          left: 50%;
-          margin-left: -92px;
-          top: 50%;
-          margin-top: -14.5px;
-          backface-visibility: hidden;
-          transform-style: preserve-3d;
-          transition: all 1s ease-in-out;
-          h2 {
-            font-size: 20px;
-          }
-        }
-        .front {
-          color: $LightGrey;
-        }
-        .back {
-          color: $Blue;
-          transform: rotatey(180deg);
-        }
-        &:hover {
-          .front {
-            transform: rotatey(180deg);
-          }
-          .back {
-            transform: rotatey(360deg);
-          }
-        }
-      }
-      .control {
-        position: absolute;
-        display: block;
-        right: 60px;
-        top: 25px;
-      }
-    }
-
-    .details {
-      display: none;
-      width: 150px;
-      .media {
-        margin: 0px;
-        padding: 0px;
-        list-style: none;
-        justify-content: center;
-        li {
-          background-color: $LightGrey;
-          height: 30px;
-          margin: 5px;
-          width: 29px;
-          border-radius: 50%;
-          img {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-          }
-        }
-      }
-      .skills-lists {
-        color: $LightGrey;
-        list-style: none;
-        h2 {
-          color: $Blue;
-          margin-left: -15px;
-        }
-        .skill {
-          transform: translateX(-15px);
-          label {
-            cursor: pointer;
-            width: 100%;
-          }
-          .control2[type="checkbox"] {
-            float: left;
-            width: 0px;
-          }
-          .control2[type="checkbox"]::before {
-            top: 6px;
-            content: "";
-            left: 2px;
-            position: absolute;
-            border-width: 7px 0px 7px 7px;
-            border-style: solid;
-            border-color: transparent #63a2c2;
-          }
-          .control2[type="checkbox"]:checked::before {
-            transform: rotate(90deg);
-          }
-          .control2[type="checkbox"] + label {
-            ul {
-              display: none;
-              transition: all 2s ease-in-out;
-            }
-          }
-          .control2[type="checkbox"]:checked + label {
-            ul {
-              display: block;
-            }
-          }
-          h5 {
-            margin-left: 15px;
-            transition: all 0.2s ease-in-out;
-          }
-        }
-
-        .rate {
-          list-style: none;
-          padding: 0;
-          .empty {
-            height: 15px;
-            width: 15px;
-            display: inline-block;
-            border: 1px solid $Blue;
-          }
-          .fill {
-            height: 15px;
-            width: 15px;
-            display: inline-block;
-            border: 1px solid $Blue;
-            background-color: $Blue;
-            box-shadow: -1px -1px 2px 0px $DarkBlue inset;
-          }
-        }
-      }
-    }
-    .active-details {
-      display: block;
-    }
-  }
-  .portfolio {
-    width: 100%;
-    float: right;
-    padding: 19px 63px;
-    background-color: $LightGrey;
-    h1 {
-      margin-left: 10px;
-      width: 170px;
-      font-weight: bold;
-      color: $DarkBlue;
-      border-bottom: 3px solid $DarkBlue;
-    }
-    .projects {
-      .project {
-        height: 340px;
-        width: 98%;
+      
+      .project{
+        transition: 0.5s ease-in-out;
+        height: 300px;
+        width: 47%;
         margin: 1%;
         border: 1px solid $Blue;
         border-radius: 10px;
         overflow: hidden;
         display: inline-block;
-       // background-color: $Blue;
+        background-color: $Blue;
         box-shadow: 6px 7px 16px -9px black;
         a {
           &:hover {
             img {
               opacity: 0.6;
-              transform: scale(1.1, 1.1);
-            }
-            .project-header {
+              transform: scale(1.1);
             }
           }
           .project-header {
@@ -1018,6 +780,264 @@ body {
           }
         }
       }
+      .click_control{
+        height: 330px;
+        width: 57%;
+        margin: 7px 0 0 47.5%;
+      }
     }
   }
+}
+@media (max-width: 700px) {
+  .intro {
+    width: 100%;
+    padding: 0 65px;
+    height: 70px;
+    z-index: 999;
+    
+    header {
+      display: flex;
+      .title {
+        margin: 11px 6px;
+        width: 70%;
+        .front,
+        .back {
+          position: absolute;
+          text-align: center;
+          left: 50%;
+          margin-left: -92px;
+          top: 50%;
+          margin-top: -14.5px;
+          backface-visibility: hidden;
+          transform-style: preserve-3d;
+          transition: all 1s ease-in-out;
+          h2 {
+            font-size: 20px;
+          }
+        }
+        .front {
+          color: $LightGrey;
+        }
+        .back {
+          color: $Blue;
+          transform: rotatey(180deg);
+        }
+        &:hover {
+          .front {
+            transform: rotatey(180deg);
+          }
+          .back {
+            transform: rotatey(360deg);
+          }
+        }
+      }
+      .control {
+        position: absolute;
+        display: block;
+        right: 80px;
+        top: 13px;
+      }
+    }
+
+    .details {
+      position: absolute;
+      left: -300px;
+      width: 150px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
+      .media {
+       // transform: translateX(-35px);
+        li {
+          margin: 5px;
+          width: 37px;
+          height: 37px;
+          a {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            i{font-size: 20px; }
+            svg{
+              width: 37px;
+            }
+          }
+        }
+       
+      }
+      .ul_skills_lists {
+        color: $LightGrey;
+        list-style: none;
+        h2 {
+          color: $Blue;
+          margin-left: -15px;
+          font-size: 25px;
+        }
+        .skill {
+          transform: translateX(-15px);
+          width: 116px;
+          h5 {
+            margin-left: 15px;
+            transition: all 0.2s ease-in-out;
+          }
+        }
+
+        .rate {
+          list-style: none;
+          padding: 0;
+          .empty {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid $Blue;
+          }
+          .fill {
+            height: 15px;
+            width: 15px;
+            display: inline-block;
+            border: 1px solid $Blue;
+            background-color: $Blue;
+            box-shadow: -1px -1px 2px 0px $DarkBlue inset;
+          }
+        }
+      }
+    }
+    .active_details {
+      display: inline-block;
+      background-color: $DarkBlue;
+      width: 200px;
+      position: absolute;
+      left: 0px;
+      top: 70px;
+      height: 700px;
+      transition: 0.5s ease-in-out;
+
+    }
+  }
+
+  .portfolio {
+    width: 100%;
+    float: right;
+    padding: 19px 63px;
+    background-color: $LightGrey;
+    h2 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: $DarkBlue;
+      border-bottom: 3px solid $DarkBlue;
+    }
+    .projects {
+      
+      .project{
+        transition: 0.5s ease-in-out;
+        height: 325px;
+        width: 90%;
+        margin: 5% 0 0px 4%;
+        a {
+          &:hover {
+            img {
+              opacity: 0.6;
+              transform: scale(1.1);
+            }
+          }
+          .project-header {
+            overflow: hidden;
+            height: 80%;
+            width: 100%;
+            img {
+              height: 100%;
+              width: 100%;
+              transition: all 1s ease-in-out;
+            }
+          }
+          color: $LightGrey;
+          text-decoration: none;
+          font-size: 33px;
+          .project-name {
+            transition: 0.5s ease-in-out;
+            text-align: center;
+            background-color: $DarkBlue;
+            height: 20%;
+            border-top: 1px solid $Blue;
+            h3 {
+              transition: none;
+              font-size: 74%;
+            }
+          }
+        }
+      }
+      .click_control{
+        height: 330px;
+        width: 57%;
+        margin: 7px 0 0 43%;
+      }
+    }
+  }
+}
+@media (max-width: 600px){
+  .portfolio {
+    width: 100%;
+    float: right;
+    padding: 19px 63px;
+    background-color: $LightGrey;
+    h2 {
+      margin-left: 10px;
+      width: 170px;
+      font-weight: bold;
+      color: $DarkBlue;
+      border-bottom: 3px solid $DarkBlue;
+    }
+    .projects {
+      
+      .project{
+        transition: 0.5s ease-in-out;
+        height: 325px;
+        width: 90%;
+        margin: 5% 0 0px 4%;
+        a {
+          &:hover {
+            img {
+              opacity: 0.6;
+              transform: scale(1.1);
+            }
+          }
+          .project-header {
+            overflow: hidden;
+            height: 80%;
+            width: 100%;
+            img {
+              height: 100%;
+              width: 100%;
+              transition: all 1s ease-in-out;
+            }
+          }
+          color: $LightGrey;
+          text-decoration: none;
+          font-size: 33px;
+          .project-name {
+            transition: 0.5s ease-in-out;
+            text-align: center;
+            background-color: $DarkBlue;
+            height: 20%;
+            border-top: 1px solid $Blue;
+            h3 {
+              transition: none;
+              font-size: 74%;
+            }
+          }
+        }
+      }
+      .click_control{
+        height: 330px;
+        width: 65%;
+        margin: 7px 0 0 43%;
+      }
+    }
+  }
+}
+.scale1-1 {
+  transform: scale(1.1);
+}
+.transition-0-5s {
+  transition: 0.5s ease-in-out;
 }
