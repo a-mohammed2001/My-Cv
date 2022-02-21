@@ -28,7 +28,7 @@ let body = document.querySelector("body"),
       },
       {
         name: "quran Sound player",
-        img: "cv-images/quran_Sound_player.png",
+        img: "cv-images/quran Sound player.png",
         demo_link:"https://a-mohammed2001.github.io/quran_Sound_player/",
         github_link:"https://github.com/a-mohammed2001/quran_Sound_player",
       },
