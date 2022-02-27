@@ -28,7 +28,7 @@ body {
         position: absolute;
         text-align: center;
         left: 50%;
-        margin-left: -92px;
+        margin-left: -100px;
         top: 50%;
         margin-top: -14.5px;
         backface-visibility: hidden;
@@ -202,7 +202,8 @@ body {
     color: $DarkBlue;
     border-bottom: 3px solid $DarkBlue;
   }
-  .projects{
+  .projects{ 
+    
     .project{
       a{
         color: $LightGrey;
@@ -210,7 +211,7 @@ body {
       }
       cursor: pointer;
       height: 300px;
-      width: 30%;
+      width: calc(99%/3);
       border: 1px solid $Blue;
       border-radius: 10px;
       overflow: hidden;

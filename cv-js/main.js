@@ -11,14 +11,12 @@ let body = document.querySelector("body"),
         img: "cv-images/rest countries api.jpg",
         demo_link:"https://a-mohammed2001.github.io/REST_Countries_Search_API/",
         github_link:"https://github.com/a-mohammed2001/REST_Countries_Search_API",
-
       },
       {
         name: "Github Users search",
         img: "cv-images/github users search.jpg",
         demo_link:"https://a-mohammed2001.github.io/GitHub-users-search-app/",
         github_link:"https://github.com/a-mohammed2001/GitHub-users-search-app",
-
       },
       {
         name: "Am furniture",
