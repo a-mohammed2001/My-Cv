@@ -5,6 +5,7 @@ let body = document.querySelector("body"),
     ul_skills_lists = document.querySelector(".ul_skills_lists"),
     intro = document.querySelector(".intro"),
     skill_active_ul = document.querySelector(".skill_active ul"),
+    about = document.querySelector(".about"),
     projects_list = [
       {
         name: "Rest Countries Api",
@@ -57,7 +58,9 @@ let body = document.querySelector("body"),
         inner_skills: [],
       },
     ];
-    
+    about.addEventListener("click",function() {
+     this.children[1].classList.toggle("hidden_paragraph");
+    });
 projects_map = projects_list
   .map(function (project) {
     return `

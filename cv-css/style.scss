@@ -16,8 +16,7 @@ body {
   background-color: $DarkBlue;
   header {
     .title {
-      cursor: pointer;
-      margin: 30px auto 20px;
+      margin: 30px auto 10px;
       height: 50px;
       width: 100%;
       position: relative;
@@ -66,48 +65,94 @@ body {
   }
 
   .details {
-    .media {
-      margin: 0px;
-      padding: 0px;
-      list-style: none;
-      justify-content: center;
+    margin: 0;
+    padding: 0;
+    .about{
+      transition:all 1s ease-in-out;
+
+     cursor: pointer;
+      h2 {
+        color: $Blue;
+        margin-left: 23px;
+      }
       
-      li {
-        margin: 2px;
-      }
-      .linkedin {
-        background-color: black;
-        padding: 6px 8px;
-        border-radius: 50%;
-        i {
-          color: $LightGrey;
-          font-size: 25px;
+      p{
+        height: 500px;
+        color: $LightGrey;
+        margin: 0;
+        padding: 0 23px;
+        font-size: 14.5px;
+        overflow: hidden;
+        transition:all 1s ease-in-out;
+        & + .fa-caret-right{
+          transform: rotate(-90deg);
+          color: $Blue;
+          margin-left: 100px;
+          font-size: 35px;
         }
       }
-      .github {
-        i {
-          color: black;
-          box-shadow: black inset -1px 1px 0px 2px;
-          background-color: #f5f1f0;
-          font-size: 39px;
+      .hidden_paragraph{
+        margin: 0;
+        height: 65px;
+        transition:all 1s ease-in-out;
+        & + .fa-caret-right{
+          transform: rotate(90deg);
+          color: $Blue;
+          margin-left: 100px;
+          font-size: 35px;
+        }
+      }
+     
+      .media {
+        padding: 0px;
+        list-style: none;
+        display: flex;
+        width: 200px;
+        margin-left: 24px;
+        justify-content: start;
+        border-bottom: 1px solid $Blue;
+        li {
+          margin: 2px;
+        }
+        .linkedin {
+          background-color: black;
+          padding: 6px 8px;
           border-radius: 50%;
+          i {
+            color: $LightGrey;
+            font-size: 25px;
+          }
         }
-      }
-      .codepen {
-        background-color: black;
-        padding: 6px;
-        border-radius: 50%;
-        i {
-          font-size: 26px;
-          color: $LightGrey;
+        .github {
+          i {
+            color: black;
+            box-shadow: black inset -1px 1px 0px 2px;
+            background-color: #f5f1f0;
+            font-size: 39px;
+            border-radius: 50%;
+          }
         }
-      }
-      .upwork {
-        width: 39px;
-        svg {
+        .codepen {
+          background-color: black;
+          padding: 6px;
           border-radius: 50%;
+          i {
+            font-size: 26px;
+            color: $LightGrey;
+          }
+        }
+        .upwork {
+          width: 39px;
+          svg {
+            border-radius: 50%;
+          }
         }
       }
+    }
+    
+    h2{
+      color: $Blue;
+      margin-left: 23px;
     }
     .ul_skills_lists {
       color: $LightGrey; 
