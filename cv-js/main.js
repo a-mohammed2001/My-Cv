@@ -26,10 +26,16 @@ let body = document.querySelector("body"),
         github_link:"https://github.com/a-mohammed2001/Am_Furniture",
       },
       {
-        name: "quran Sound player",
+        name: "Quran Sound player",
         img: "cv-images/quran Sound player.png",
         demo_link:"https://a-mohammed2001.github.io/quran_Sound_player/",
         github_link:"https://github.com/a-mohammed2001/quran_Sound_player",
+      },
+      {
+        name: "Quiz App",
+        img: "cv-images/Quiz app.jpg",
+        demo_link:"https://a-mohammed2001.github.io/Quiz_App/",
+        github_link:"https://github.com/a-mohammed2001/Quiz_App",
       },
     ],
     skills_list = [
