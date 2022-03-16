@@ -33,7 +33,7 @@ let body = document.querySelector("body"),
       },
       {
         name: "Quiz App",
-        img: "cv-images/Quiz app.jpg",
+        img: "cv-images/Quiz App.jpg",
         demo_link:"https://a-mohammed2001.github.io/Quiz_App/",
         github_link:"https://github.com/a-mohammed2001/Quiz_App",
       },
