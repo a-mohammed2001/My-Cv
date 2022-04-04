@@ -197,7 +197,7 @@ body {
       opacity: 0.6; }
     .portfolio .projects .project .project-header {
       overflow: hidden;
-      height: 80%;
+      height: 78%;
       width: 100%; }
       .portfolio .projects .project .project-header img {
         height: 100%;
@@ -207,7 +207,7 @@ body {
       transition: 0.5s ease-in-out;
       text-align: center;
       background-color: #1b262c;
-      height: 20%;
+      height: 22%;
       border-top: 1px solid #63a2c2; }
       .portfolio .projects .project .project-name h3 {
         transition: none;

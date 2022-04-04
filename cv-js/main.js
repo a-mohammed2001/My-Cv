@@ -14,10 +14,10 @@ let body = document.querySelector("body"),
         github_link:"https://github.com/a-mohammed2001/REST_Countries_Search_API",
       },
       {
-        name: "Github Users search",
-        img: "cv-images/github users search.jpg",
-        demo_link:"https://a-mohammed2001.github.io/GitHub-users-search-app/",
-        github_link:"https://github.com/a-mohammed2001/GitHub-users-search-app",
+        name: "Ertugrul New Version Clone (React.js)",
+        img: "cv-images/ertugrul.jpg",
+        demo_link:"https://a-mohammed2001.github.io/Ertugrul_New_Version_Clone_React_Js/",
+        github_link:"https://github.com/a-mohammed2001/Ertugrul_New_Version_Clone_React_Js",
       },
       {
         name: "Am furniture",
@@ -37,6 +37,12 @@ let body = document.querySelector("body"),
         demo_link:"https://a-mohammed2001.github.io/Quiz_App/",
         github_link:"https://github.com/a-mohammed2001/Quiz_App",
       },
+      {
+        name: "Github Users search",
+        img: "cv-images/github users search.jpg",
+        demo_link:"https://a-mohammed2001.github.io/GitHub-users-search-app/",
+        github_link:"https://github.com/a-mohammed2001/GitHub-users-search-app",
+      },
     ],
     skills_list = [
       {
@@ -52,11 +58,11 @@ let body = document.querySelector("body"),
         inner_skills: ["Dom", "Bom", "Jquery"],
       },
       {
-        name: "Json",
+        name: "React.js",
         inner_skills: [],
       },
       {
-        name: "Ajax",
+        name: "Json",
         inner_skills: [],
       },
       {
